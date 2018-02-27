@@ -1,0 +1,9 @@
+<h1>My Tasks</h1>
+<ul>
+  <% @tasks.each do |task| %>
+    <li>
+      <input type="checkbox" <%= "checked" if task.completed %>> <%= link_to task.title, show_path(task) %> <%= link_to raw("<i class='fa fa-trash'></i>"), destroy_path(task), method: :delete %>
+    </li>
+  <% end %>
+</ul>
+<%= link_to "+ Add a new task", new_path %>
